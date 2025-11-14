@@ -12,6 +12,11 @@ services:
       interval: 10s
       timeout: 3s
       retries: 5
+      
+    
+    mem_limit: 128m          # max mem limit
+    mem_reservation: 64m     # soft mem limit
+    cpus: "0.25"             # at most 25% of one CPU core
 
   app:
     build: .
@@ -26,6 +31,10 @@ services:
     volumes:
       - .:/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+    mem_limit: 256m          # max mem limit
+    mem_reservation: 128m     # soft mem limit
+    cpus: "0.50"             # at most 25% of one CPU core
 
 volumes:
   redis_data:
