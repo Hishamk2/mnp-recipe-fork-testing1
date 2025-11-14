@@ -15,7 +15,7 @@ services:
       
     
     mem_limit: 7m          # max mem limit
-    mem_reservation: 64k     # soft mem limit
+    mem_reservation: 7m     # soft mem limit
     cpus: "0.001"             # at most cpus% of one CPU core
 
   app:
